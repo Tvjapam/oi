@@ -1,0 +1,592 @@
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>San Diego: System Architecture</title>
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+<style>
+.heading { z-index:0; }
+#fid {
+    width: 100%;
+    padding-top: 63.5%;
+    position: relative;
+	background-image: url("images/fid.svg");
+    border: 1px solid #000;
+ }
+#fid div:hover {
+	background: #768E99;
+	color:white;
+}
+#fid div  {
+	position:absolute;
+	text-decoration:none;
+	text-align:center;
+	background:#93b6d6;
+	font-size:.7vw;
+	font-family: Arial;
+	font-weight: bolder;
+	padding:5px;
+	border:1px solid black;
+}
+.nipr {
+    left: 67.9%;
+    top: 44.5%;
+    width: 8.2%;
+    height: 3.2%;
+	}
+.sipr {
+    left: 67.9%;
+    top: 49.8%;
+    width: 8.2%;
+    height: 3.2%;
+	}	
+.comsec {
+    left: 88.3%;
+    top: 58%;
+    width: 7.9%;
+    height: 19.6%;
+	}		
+.inc_ii {
+    left: 6.5%;
+    top: 9%;
+    width: 10.5%;
+    height: 3.2%;
+	}
+.ancc {
+left: 4.5%;
+top: 25.7%;
+width: 8.3%;
+height: 22.6%;
+	}		
+	
+.inc_iii {
+    left: 6.5%;
+    top: 14%;
+    width: 10.5%;
+    height: 3.2%;
+
+	}	
+.piers {
+left: 4.5%;
+    top: 67.88%;
+    width: 8.3%;
+    height: 9.2%;
+	}	
+.ext {
+    left: 35.8%;
+    top: 83.3%;
+    width: 8%;
+    height: 9.5%;
+	}	
+.rtms {
+    left: 51.5%;
+    top: 83.3%;
+    width: 8%;
+    height: 9.5%;
+	}		
+.ehf {
+
+    left: 35.8%;
+    top: 58.5%;
+    width: 8%;
+    height: 10.2%;
+	}	
+.ntwan {
+    left: 35.4%;
+    top: 41.9%;
+    width: 8.5%;
+    height: 9.5%;
+	}	
+.ntwan2 {
+    left: 35.4%;
+    top: 18.9%;
+    width: 8.5%;
+    height: 9.5%;
+	}	
+.gps {
+    left: 88.3%;
+    top: 8.2%;
+    width: 8%;
+    height: 6.5%;
+	}
+.adms {
+    left: 88.3%;
+    top: 25.7%;
+    width: 8%;
+    height: 6.5%;
+	}
+.jtt {
+    left: 88.3%;
+    top: 40.5%;
+    width: 8%;
+    height: 6.5%;
+	}	
+	
+	.menu {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+.menu span {
+    display: none;
+    position: absolute;
+    font-size: 1.5em;
+    font-weight: 100;
+    z-index: 1;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -80px;
+    text-align: justify;
+    width: 175px;
+}
+.menu:hover span {
+  display: block;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  left:0px;
+  background-color: #fff;
+  min-width: 155px;
+  overflow: auto;
+  box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.list-group-item {
+    padding: .5rem 1rem .2rem;
+    font-size: .75em;
+}
+.dropdown-content a {
+  color: black;
+  padding: 5px 10px;
+  text-decoration: none;
+  display: inline-block;
+  text-align:center;
+  font-size:14px;
+}
+
+.dropdown a:hover {color: #768E99;}
+
+.show {display: block;}
+#floor-plan {
+	width:100%;
+	padding-top:58.1%;
+	position:relative;
+	margin: auto;
+	background-image: url( images/ncts_blueprint.jpg );
+	background-size: cover;
+}
+#floor-plan span {
+	position:absolute;
+
+	}
+.room-154
+{
+left: 60%;
+top: 16%;
+width: 49px;
+height: 54px;
+background-image: url("images/location_marker.png");
+z-index: 99;
+}
+.room-168
+{
+left: 29%;
+top: 16%;
+width: 49px;
+height: 54px;
+background-image: url("images/location_marker.png");
+z-index: 99;
+}
+.room-169a
+{
+left: 38%;
+top: 29.5%;
+width: 49px;
+height: 54px;
+background-image: url("images/location_marker.png");
+z-index: 99;
+}
+
+.room-180a
+{
+left: 13%;
+top: 36%;
+width: 49px;
+height: 54px;
+background-image: url("images/location_marker.png");
+z-index: 99;
+}
+.room-180c
+{
+left: 14.7%;
+top: 51.5%;
+width: 49px;
+height: 54px;
+background-image: url("images/location_marker.png");
+z-index: 99;
+}
+.room-180d
+{
+left: 12.5%;
+top: 50%;
+width: 49px;
+height: 54px;
+background-image: url("images/location_marker.png");
+z-index: 99;
+}
+
+.room-181b
+{
+left: 13.8%;
+top: 56%;
+width: 49px;
+height: 54px;
+background-image: url("images/location_marker.png");
+z-index: 99;
+}
+.room-181e
+{
+left: 13.2%;
+top: 63%;
+width: 49px;
+height: 54px;
+background-image: url("images/location_marker.png");
+z-index: 99;
+}
+
+#svg {
+    z-index: -1;
+    float: right;
+margin-top: -63.5%;
+} 
+</style>
+</head>
+<body>
+
+	<div class="col-md-10 offset-md-2" id="main">
+		<div class="row justify-content-center">
+			<div class="col-12">
+				<div class="card">
+					<div class="card-header">
+					  <h2 style="display:inline;">System Architecture</h2>
+
+					</div>
+					<div class="card-body">
+						<div class="row justify-content-center">
+							<div class="col-12">
+<div id="fid">
+ <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:v="http://schemas.microsoft.com/visio/2003/SVGExtensions/" viewBox="40 38 883 560" id="svg" preserveAspectRatio="xMidYMid meet" xml:space="preserve" color-interpolation-filters="sRGB" class="st11">
+		<v:documentproperties v:langid="1033" v:viewmarkup="false">
+			<v:userdefs>
+				<v:ud v:nameu="msvNoAutoConnect" v:val="VT0(0):26"></v:ud>
+			</v:userdefs>
+		</v:documentproperties>
+
+		<style type="text/css">
+		
+		g.cable path { stroke: #000 }
+		g.cable:hover path { stroke: #00f }
+		
+	.tipthemewhite {margin:3em 0 0 1.1em;}
+	foreignObject.piers, foreignObject.ancc, foreignObject.ntwan, foreignObject.gps, foreignObject.nmt-ntwan, foreignObject.ehf-nmt, foreignObject.external, 
+	foreignObject.adms, foreignObject.rtms, foreignObject.comsec, foreignObject.adms, foreignObject.jtt, foreignObject.inc_ii, foreignObject.inc_iii, foreignObject.nipr, foreignObject.sipr
+	 {
+		display:none;
+		position:relative;
+		top:-25px;
+		left:30px;
+	}
+	.piers:hover + foreignObject.piers, .ancc:hover + foreignObject.ancc, .ntwan:hover + foreignObject.ntwan, .gps:hover + foreignObject.gps, 
+	.nmt-ntwan:hover + foreignObject.nmt-ntwan, .ehf-nmt:hover + foreignObject.ehf-nmt, .external:hover + foreignObject.external, .adms:hover + foreignObject.adms, 
+	.rtms:hover + foreignObject.rtms:hover + foreignObject.external, .comsec:hover + foreignObject.comsec, .jtt:hover + foreignObject.jtt,
+	.inc_ii:hover + foreignObject.inc_ii, .inc_iii:hover + foreignObject.inc_iii, .rtms:hover + foreignObject.rtms, .nipr:hover + foreignObject.nipr, .sipr:hover + foreignObject.sipr
+
+	 {
+		display: block;
+	}
+	foreignObject:hover{display:block}
+
+		.st1 {visibility:visible}
+			.st2 {fill:#cdcdcd;fill-opacity:0.5;stroke:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.25}
+			.st3 {fill:url(#grad30-6);stroke:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.25}
+			.st4 {fill:#cdcdcd;fill-opacity:0.5;stroke:#cdcdcd;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:0.5;stroke-width:1}
+			.st5 {fill:url(#grad30-12);stroke:#404040;stroke-linecap:round;stroke-linejoin:round;stroke-width:1}
+			.st6 {fill:#000000;font-family:Arial;font-size:0.833336em;font-weight:bold}
+			.st7 {stroke:#404040;stroke-linecap:round;stroke-linejoin:round;stroke-width:1}
+			.st8 {fill:url(#grad30-156);stroke:#404040;stroke-linecap:round;stroke-linejoin:round;stroke-width:1}
+			.st9 {fill:none;stroke:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.25}
+			.st10 {fill:#000000;font-family:Arial;font-size:1.16666em;font-weight:bold}
+			.st11 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
+		
+		</style>
+
+		<defs id="Patterns_And_Gradients">
+			<linearGradient id="grad30-6" v:fillpattern="30" v:foreground="#ecdbb3" v:background="#f2e6ca" x1="0" y1="1" x2="0" y2="0">
+				<stop offset="0" style="stop-color:#ecdbb3;stop-opacity:1"></stop>
+				<stop offset="1" style="stop-color:#f2e6ca;stop-opacity:1"></stop>
+			</linearGradient>
+			<linearGradient id="grad30-12" v:fillpattern="30" v:foreground="#91b5d5" v:background="#a6c3dd" x1="0" y1="1" x2="0" y2="0">
+				<stop offset="0" style="stop-color:#91b5d5;stop-opacity:1"></stop>
+				<stop offset="1" style="stop-color:#a6c3dd;stop-opacity:1"></stop>
+			</linearGradient>
+			<linearGradient id="grad30-29" v:fillpattern="30" v:foreground="#f0f0f0" v:background="#ffffff" x1="0" y1="1" x2="0" y2="0">
+				<stop offset="0" style="stop-color:#f0f0f0;stop-opacity:1"></stop>
+				<stop offset="1" style="stop-color:#ffffff;stop-opacity:1"></stop>
+			</linearGradient>
+			<linearGradient id="grad30-156" v:fillpattern="30" v:foreground="#cbddeb" v:background="#e1ebf3" x1="0" y1="1" x2="0" y2="0">
+				<stop offset="0" style="stop-color:#cbddeb;stop-opacity:1"></stop>
+				<stop offset="1" style="stop-color:#e1ebf3;stop-opacity:1"></stop>
+			</linearGradient>
+		</defs>
+		<g v:mid="0" v:index="1" v:groupcontext="foregroundPage">
+
+			<g class="cable jqeasytooltip" data-tiptheme="tipthemewhite" data-tipcontent="PIERS - COMSEC" id="shape23-119" v:mid="23" v:groupcontext="shape" v:layermember="1" transform="translate(153,-174.938)">
+				<rect x="3" y="613" width="660" height="10" style="stroke-width:0; fill:transparent"></rect>
+				<path d="M0 618.75 L235.5 618.75 A3 3 0 0 1 241.5 618.75 L666 618.75" class="st7"></path>
+			</g>
+			<g class="cable jqeasytooltip" id="shape29-143" v:mid="29" v:groupcontext="shape" v:layermember="1" transform="translate(153,-399.938)" data-tiptheme="tipthemewhite" data-tipcontent="ANCC - SSR-1/JTT">
+				<rect x="1" y="623" width="655" height="10" style="stroke-width:0; fill:transparent"></rect>
+				<rect x="643" y="635" width="12" height="58" style="stroke-width:0; fill:transparent"></rect>
+				<rect x="655" y="678" width="10" height="13" style="stroke-width:0; fill:transparent"></rect>
+				<path d="M0 627.75 L235.5 627.75 A3 3 0 0 1 241.5 627.75 L289.5 627.75 A3 3 0 0 1 295.5 627.75 L368.25 627.75 A3 3 0
+							 0 1 374.25 627.75 L648 627.75 L648 681.75 L666 681.75" class="st7"></path>
+			</g>
+			<g class="cable jqeasytooltip" id="shape30-147" v:mid="30" v:groupcontext="shape" v:layermember="1" transform="translate(153,-383.063)" data-tiptheme="tipthemewhite" data-tipcontent="ANCC - COMSEC">
+				<rect x="1" y="624" width="637" height="10" style="stroke-width:0; fill:transparent"></rect>
+				<rect x="625" y="637" width="13" height="125" style="stroke-width:0; fill:transparent"></rect>
+				<rect x="638" y="751" width="25" height="11" style="stroke-width:0; fill:transparent"></rect>
+				<path d="M0 627.75 L235.5 627.75 A3 3 0 0 1 241.5 627.75 L289.5 627.75 A3 3 0 0 1 295.5 627.75 L368.25 627.75 A3 3 0
+							 0 1 374.25 627.75 L630 627.75 L630 754.87 L666 754.87" class="st7"></path>
+			</g>
+			<g class="cable jqeasytooltip" id="shape21-111" v:mid="21" v:groupcontext="shape" v:layermember="1" transform="translate(153,-363.938)" data-tiptheme="tipthemewhite" data-tipcontent="ANCC - EHF/NM">
+				<rect x="2" y="622" width="50" height="10" style="stroke-width:0; fill:transparent"></rect>
+				<rect x="41" y="634" width="10" height="130" style="stroke-width:0; fill:transparent"></rect>
+				<rect x="52" y="755" width="150" height="10" style="stroke-width:0; fill:transparent"></rect>
+				<path d="M0 627.75 L45 627.75 L45 760.5 L202.5 760.5" class="st7"></path>
+			</g>
+			<g class="cable jqeasytooltip" id="shape19-103" v:mid="19" v:groupcontext="shape" v:layermember="1" transform="translate(427.5,-338.437)" data-tiptheme="tipthemewhite" data-tipcontent="NMT/NTWAN - GPS TIMING">
+				<rect x="1" y="624" width="22" height="12" style="stroke-width:0; fill:transparent"></rect>
+				<rect x="7" y="440" width="15" height="180" style="stroke-width:0; fill:transparent"></rect>
+				<rect x="22" y="440" width="366" height="15" style="stroke-width:0; fill:transparent"></rect>
+				<path d="M0 627.75 L18 627.75 L18 448.87 L391.5 448.87" class="st7"></path>
+			</g>
+			<g class="cable jqeasytooltip" id="shape28-139" v:mid="28" v:groupcontext="shape" v:layermember="1" transform="translate(153,-426.938)" data-tiptheme="tipthemewhite" data-tipcontent="ANCC - COMSEC">
+				<rect x="1" y="630" width="665" height="10" style="stroke-width:0; fill:transparent"></rect>
+				<path d="M0 636.56 L235.5 636.7 A3 3 0 0 1 241.5 636.7 L289.5 636.73 A3 3 0 0 1 295.5 636.73 L368.25 636.77 A3 3 0 0 1 374.25 636.77 L665.99 636.94" class="st7"></path>
+			</g>		
+			<g class="cable jqeasytooltip" id="shape27-135" v:mid="27" v:groupcontext="shape" v:layermember="1" transform="translate(427.5,-237.938)" data-tiptheme="tipthemewhite" data-tipcontent="EHF/NMT - ADMS">
+				<rect x="1" y="622" width="105" height="10" style="stroke-width:0; fill:transparent"></rect>
+				<rect x="94" y="420" width="10" height="202" style="stroke-width:0; fill:transparent"></rect>
+				<rect x="105" y="420" width="280" height="10" style="stroke-width:0; fill:transparent"></rect>
+				<path d="M0 627.75 L96.75 627.75 L96.75 427.5 L391.5 427.5" class="st7"></path>
+			</g>
+
+			<g class="cable jqeasytooltip" id="shape22-115" v:mid="22" v:groupcontext="shape" v:layermember="1" transform="translate(427.5,-210.938)" data-tiptheme="tipthemewhite" data-tipcontent="EHF/NMT - COMSEC">
+				<rect x="3" y="613" width="385" height="10" style="stroke-width:0; fill:transparent"></rect>
+				<path d="M0 618.75 L391.5 618.75" class="st7"></path>
+			</g>
+			<g class="cable jqeasytooltip" id="shape4-26" v:mid="4" v:groupcontext="shape" v:layermember="1" transform="translate(117,-443.813)" data-tiptheme="tipthemewhite" data-tipcontent="ANCC - NTWAN">
+				<rect x="-4" y="608" width="15" height="13" style="stroke-width:0; fill:transparent"></rect>
+				<rect x="12" y="608" width="223" height="12" style="stroke-width:0; fill:transparent"></rect>
+				<path d="M0 624.37 L0 613.12 L238.5 613.12" class="st7"></path>
+			</g>		
+			<g class="cable jqeasytooltip" id="shape16-91" v:mid="16" v:groupcontext="shape" v:layermember="1" transform="translate(382.5,-204.188)" data-tiptheme="tipthemewhite" data-tipcontent="EHF/NMT - EXTERNAL">
+				<rect x="3" y="629" width="10" height="80" style="stroke-width:0; fill:transparent"></rect>
+				<path d="M9 627.75 L9 708.75" class="st7"></path>
+			</g>
+			<g class="cable jqeasytooltip" id="shape15-87" v:mid="15" v:groupcontext="shape" v:layermember="1" transform="translate(427.5,-87.1875)" data-tiptheme="tipthemewhite" data-tipcontent="EXTERNAL - RTMS">
+				<rect x="1" y="613" width="65" height="10" style="stroke-width:0; fill:transparent"></rect>
+				<path d="M0 618.75 L67.5 618.75" class="st7"></path>
+			</g>					
+			<g class="cable jqeasytooltip" id="shape24-123" v:mid="24" v:groupcontext="shape" v:layermember="1" transform="translate(391.5,-69.1875)" data-tiptheme="tipthemewhite" data-tipcontent="EXTERNAL - COMSEC">
+				<rect x="-7" y="629" width="10" height="10" style="stroke-width:0; fill:transparent"></rect>
+				<rect x="458" y="545" width="12" height="95" style="stroke-width:0; fill:transparent"></rect>
+				<rect x="-8" y="640" width="484" height="10" style="stroke-width:0; fill:transparent"></rect>
+				<path d="M0 627.75 L0 645.75 L463.5 645.75 L463.5 542.25" class="st7"></path>
+			</g>
+			<g class="cable jqeasytooltip" id="shape26-131" v:mid="26" v:groupcontext="shape" v:layermember="1" transform="translate(117,-156.938)" data-tiptheme="tipthemewhite" data-tipcontent="PIERS - EXTERNAL">
+				<rect x="-4" y="629" width="10" height="55" style="stroke-width:0; fill:transparent"></rect>
+				<rect x="9" y="673" width="224" height="10" style="stroke-width:0; fill:transparent"></rect>
+				<path d="M0 627.75 L-0 677.62 L238.5 677.62" class="st7"></path>
+			</g>
+			<g class="cable jqeasytooltip" id="shape20-107" v:mid="20" v:groupcontext="shape" v:layermember="1" transform="translate(427.5,-319.313)" data-tiptheme="tipthemewhite" data-tipcontent="NMT/NTWAN - COMSEC">
+				<rect x="1" y="622" width="140" height="10" style="stroke-width:0; fill:transparent"></rect>
+				<rect x="128" y="633" width="12" height="82" style="stroke-width:0; fill:transparent"></rect>
+				<rect x="141" y="705" width="250" height="10" style="stroke-width:0; fill:transparent"></rect>
+				<path d="M0 627.75 L93.75 627.75 A3 3 0 0 1 99.75 627.75 L135 627.75 L135 708 L391.5 708" class="st7"></path>
+			</g>
+			<g class="cable jqeasytooltip" id="shape17-95" v:mid="17" v:groupcontext="shape" v:layermember="1" transform="translate(81,-383.063)" data-tiptheme="tipthemewhite" data-tipcontent="ANCC - EXTERNAL">
+				<rect x="-23" y="625" width="20" height="10" style="stroke-width:0; fill:transparent"></rect>
+				<rect x="-23" y="637" width="10" height="300" style="stroke-width:0; fill:transparent"></rect>
+				<rect x="-12" y="923" width="285" height="10" style="stroke-width:0; fill:transparent"></rect>
+				<path d="M0 627.75 L-18 627.75 L-18 925.87 L274.5 925.87" class="st7"></path>
+			</g>
+			<g class="cable jqeasytooltip" id="shape6-37" v:mid="6" v:groupcontext="shape" v:layermember="1" transform="translate(391.5,-485.438)" data-tiptheme="tipthemewhite" data-tipcontent="NTWAN - GPS TIMING">
+				<rect x="-3" y="570" width="10" height="55" style="stroke-width:0; fill:transparent"></rect>
+				<rect x="8" y="570" width="415" height="12" style="stroke-width:0; fill:transparent"></rect>
+				<path d="M0 627.75 L0 577.13 L427.5 577.13" class="st7"></path>
+			</g>
+			<g class="cable jqeasytooltip" id="shape28-139" v:mid="28" v:groupcontext="shape" v:layermember="1" transform="translate(153,-426.938)" data-tiptheme="tipthemewhite" data-tipcontent="NMT/NTWAN - GPS TIMING">
+				<rect x="1" y="630" width="665" height="10" style="stroke-width:0; fill:transparent"></rect>
+				<path d="M0 636.56 L235.5 636.7 A3 3 0 0 1 241.5 636.7 L289.5 636.73 A3 3 0 0 1 295.5 636.73 L368.25 636.77 A3 3 0 0 1 374.25 636.77 L665.99 636.94" class="st7"></path>
+			</g>
+	<g class="cable" id="shape18-99" v:mid="18" v:groupcontext="shape" v:layermember="1" transform="translate(382.5,-300.938)">
+				<rect x="2" y="629" width="10" height="40" style="stroke-width:0; fill:transparent"></rect>
+				<path d="M9 627.75 L9 670.5" class="st7"></path>
+			</g>		
+		
+			<g id="shape10-59" v:mid="10" v:groupcontext="shape" v:layermember="1" transform="translate(382.5,-431.438)">
+				<rect x="5" y="629" width="10" height="75" style="stroke-width:0; fill:transparent"></rect>
+				<path d="M9 627.75 L9 704.25" class="st7"></path>
+			</g>
+		
+		
+			
+			<g class="cable" id="shape25-127" v:mid="25" v:groupcontext="shape" v:layermember="1" transform="translate(108,-318.938)">
+				<rect x="4" y="630" width="10" height="102" style="stroke-width:0; fill:transparent"></rect>
+				<path d="M9 627.75 L9 735.75" class="st7"></path>
+			</g>
+
+
+
+		</g>
+	</svg>
+
+
+
+		<div class="menu nipr">CND NIPR
+			<span class="list-group" id="menu1">
+				  <a href="reports_nipr.html" class="list-group-item list-group-item-action"><img src="images/menu_reports_icon.png" width="20" alt="Reports">&nbsp;&nbsp;System Data</a>
+				  <a href="fid_zoom_10.html" class="list-group-item list-group-item-action"><img src="images/menu_fid_icon.png" width="20" alt="FID">&nbsp;&nbsp;FID</a>
+				  <a href="#popup8" class="list-group-item list-group-item-action"><img src="images/menu_location_icon.png" width="15" alt="Location">&nbsp;&nbsp;Room Location</a>
+				  <a href="cnd_nipr-unk.html" class="list-group-item list-group-item-action"><img src="images/menu_magicdraw_icon.png" width="20" alt="MBSE">&nbsp;MBSE</a>
+			</span>
+		</div>
+  		<div class="menu sipr">CND SIPR
+			<span class="list-group" id="menu2">
+				  <a href="reports_sipr.html" class="list-group-item list-group-item-action"><img src="images/menu_reports_icon.png" width="20" alt="Reports">&nbsp;&nbsp;System Data</a>
+				  <a href="fid_zoom_11.html" class="list-group-item list-group-item-action"><img src="images/menu_fid_icon.png" width="20" alt="FID">&nbsp;&nbsp;FID</a>
+				  <a href="#popup1" class="list-group-item list-group-item-action"><img src="images/menu_location_icon.png" width="15" alt="Location">&nbsp;&nbsp;Room Location</a>
+				  <a href="cnd_sipr-cnd_nipr.html" class="list-group-item list-group-item-action"><img src="images/menu_magicdraw_icon.png" width="20" alt="MBSE">&nbsp;MBSE</a>
+			</span>
+		</div>
+  		<div class="menu comsec" style="padding-top:75px">COMSEC
+			<span class="list-group" id="menu3">
+				  <a href="reports_comsec.html" class="list-group-item list-group-item-action"><img src="images/menu_reports_icon.png" width="20" alt="Reports">&nbsp;&nbsp;System Data</a>
+				  <a href="fid_zoom_15.html" class="list-group-item list-group-item-action"><img src="images/menu_fid_icon.png" width="20" alt="FID">&nbsp;&nbsp;FID</a>
+				  <a href="#popup9" class="list-group-item list-group-item-action"><img src="images/menu_location_icon.png" width="15" alt="Location">&nbsp;&nbsp;Room Location</a>
+				  <a href="comsec-ext.html" class="list-group-item list-group-item-action"><img src="images/menu_magicdraw_icon.png" width="20" alt="MBSE">&nbsp;MBSE</a>
+			</span>
+		</div>  
+  		<div class="menu ancc" style="padding-top:85px">ANCC
+			<span class="list-group" id="menu6">
+				  <a href="reports_ancc.html" class="list-group-item list-group-item-action"><img src="images/menu_reports_icon.png" width="20" alt="Reports">&nbsp;&nbsp;System Data</a>
+				  <a href="fid_zoom_6.html" class="list-group-item list-group-item-action"><img src="images/menu_fid_icon.png" width="20" alt="FID">&nbsp;&nbsp;FID</a>
+				  <a href="#popup2" class="list-group-item list-group-item-action"><img src="images/menu_location_icon.png" width="15" alt="Location">&nbsp;&nbsp;Locations</a>
+				  <a href="ancc-adms.html" class="list-group-item list-group-item-action"><img src="images/menu_magicdraw_icon.png" width="20" alt="MBSE">&nbsp;MBSE</a>
+			</span>
+		</div>
+  		<div class="menu inc_ii">SCIP-IWF INC II
+			<span class="list-group" id="menu4">
+				  <a href="reports_inc-ii.html" class="list-group-item list-group-item-action"><img src="images/menu_reports_icon.png" width="20" alt="Reports">&nbsp;&nbsp;System Data</a>
+				  <a href="fid_zoom_1.html" class="list-group-item list-group-item-action"><img src="images/menu_fid_icon.png" width="20" alt="FID">&nbsp;&nbsp;FID</a>
+				  <a href="#popup1" class="list-group-item list-group-item-action"><img src="images/menu_location_icon.png" width="15" alt="Location">&nbsp;&nbsp;Room Location</a>
+				  <a href="scip_iwf_inc_ii-patching.html" class="list-group-item list-group-item-action"><img src="images/menu_magicdraw_icon.png" width="20" alt="MBSE">&nbsp;MBSE</a>
+			</span>
+		</div>
+  		<div class="menu inc_iii">SCIP-IWF INC III
+			<span class="list-group" id="menu5">
+				  <a href="reports_inc-iii.html" class="list-group-item list-group-item-action"><img src="images/menu_reports_icon.png" width="20" alt="Reports">&nbsp;&nbsp;System Data</a>
+				  <a href="fid_zoom_2.html" class="list-group-item list-group-item-action"><img src="images/menu_fid_icon.png" width="20" alt="FID">&nbsp;&nbsp;FID</a>
+				  <a href="#popup1" class="list-group-item list-group-item-action"><img src="images/menu_location_icon.png" width="15" alt="Location">&nbsp;&nbsp;Room Location</a>
+				  <a href="scip_iwf_inc_iii-unk.html" class="list-group-item list-group-item-action"><img src="images/menu_magicdraw_icon.png" width="20" alt="MBSE">&nbsp;MBSE</a>
+			</span>
+		</div>  
+  		<div class="menu piers" style="padding-top:25px">PIERS
+			<span class="list-group" id="menu7">
+				  <a href="fid_zoom_6.html" class="list-group-item list-group-item-action"><img src="images/menu_reports_icon.png" width="20" alt="Reports">&nbsp;&nbsp;System Data</a>
+				  <a href="fid_zoom_6.html" class="list-group-item list-group-item-action"><img src="images/menu_fid_icon.png" width="20" alt="FID">&nbsp;&nbsp;FID</a>
+				  <a href="#popup3" class="list-group-item list-group-item-action"><img src="images/menu_location_icon.png" width="15" alt="Location">&nbsp;&nbsp;Locations</a>
+				  <a href="ancc.html" class="list-group-item list-group-item-action"><img src="images/menu_magicdraw_icon.png" width="20" alt="MBSE">&nbsp;MBSE</a>
+			</span>
+		</div> 		
+		<div class="menu ext" style="padding-top:25px">EXTERNAL
+			<span class="list-group" id="menu8">
+				  <a href="reports.html" class="list-group-item list-group-item-action"><img src="images/menu_reports_icon.png" width="20" alt="Reports">&nbsp;&nbsp;System Data</a>
+				  <a href="fid_zoom_8.html" class="list-group-item list-group-item-action"><img src="images/menu_fid_icon.png" width="20" alt="FID">&nbsp;&nbsp;FID</a>
+				  <a href="#popup6" class="list-group-item list-group-item-action"><img src="images/menu_location_icon.png" width="15" alt="Location">&nbsp;&nbsp;Locations</a>
+				  <a href="external-comsec.html" class="list-group-item list-group-item-action"><img src="images/menu_magicdraw_icon.png" width="20" alt="MBSE">&nbsp;MBSE</a>
+			</span>
+		</div>
+		<div class="menu rtms" style="padding-top:25px">RTMS
+			<span class="list-group" id="menu9">
+				  <a href="reports.html" class="list-group-item list-group-item-action"><img src="images/menu_reports_icon.png" width="10" alt="Reports">&nbsp;&nbsp;System Data</a>
+				  <a href="fid_zoom_9.html" class="list-group-item list-group-item-action"><img src="images/menu_fid_icon.png" width="20" alt="FID">&nbsp;&nbsp;FID</a>
+				  <a href="#popup7" class="list-group-item list-group-item-action"><img src="images/menu_location_icon.png" width="15" alt="Location">&nbsp;&nbsp;Room Location</a>
+				  <a href="rtms-legacy_rtms.html" class="list-group-item list-group-item-action"><img src="images/menu_magicdraw_icon.png" width="20" alt="MBSE">&nbsp;MBSE</a>
+			</span>
+		</div>
+		<div class="menu ehf" style="padding-top:25px">EHF/NMT
+			<span class="list-group" id="menu10">
+				  <a href="reports.html" class="list-group-item list-group-item-action"><img src="images/menu_reports_icon.png" width="20" alt="Reports">&nbsp;&nbsp;System Data</a>
+				  <a href="fid_zoom_5.html" class="list-group-item list-group-item-action"><img src="images/menu_fid_icon.png" width="20" alt="FID">&nbsp;&nbsp;FID</a>
+				  <a href="#popup5" class="list-group-item list-group-item-action"><img src="images/menu_location_icon.png" width="15" alt="Location">&nbsp;&nbsp;Locations</a>
+				  <a href="ancc.html" class="list-group-item list-group-item-action"><img src="images/menu_magicdraw_icon.png" width="20" alt="MBSE">&nbsp;MBSE</a>
+			</span>
+		</div>
+		<div class="menu ntwan" style="padding-top:25px">NMT/NTWAN
+			<span class="list-group" id="menu11">
+				  <a href="fid_zoom_3.html" class="list-group-item list-group-item-action"><img src="images/menu_fid_icon.png" width="20" alt="FID">&nbsp;&nbsp;FID</a>
+				  <a href="#popup1" class="list-group-item list-group-item-action"><img src="images/menu_location_icon.png" width="15" alt="Location">&nbsp;&nbsp;Room Location</a>
+				  <a href="ntwan-ancc.html" class="list-group-item list-group-item-action"><img src="images/menu_magicdraw_icon.png" width="20" alt="MBSE">&nbsp;MBSE</a>
+			</span>
+		</div>
+		<div class="menu ntwan2" style="padding-top:25px">NTWAN
+			<span class="list-group" id="menu12">
+				  <a href="reports.html" class="list-group-item list-group-item-action"><img src="images/menu_reports_icon.png" width="20" alt="Reports">&nbsp;&nbsp;System Data</a>
+				  <a href="fid_zoom_4.html" class="list-group-item list-group-item-action"><img src="images/menu_fid_icon.png" width="20" alt="FID">&nbsp;&nbsp;FID</a>
+				  <a href="#popup4" class="list-group-item list-group-item-action"><img src="images/menu_location_icon.png" width="15" alt="Location">&nbsp;&nbsp;Room Location</a>
+				  <a href="ntwan-unk.html" class="list-group-item list-group-item-action"><img src="images/menu_magicdraw_icon.png" width="20" alt="MBSE">&nbsp;MBSE</a>
+			</span>
+		</div>		
+		<div class="menu gps" style="padding-top:25px">GPS TIMING
+			<span class="list-group" id="menu13">
+				  <a href="reports.html" class="list-group-item list-group-item-action"><img src="images/menu_reports_icon.png" width="20" alt="Reports">&nbsp;&nbsp;System Data</a>
+				  <a href="fid_zoom_12.html" class="list-group-item list-group-item-action"><img src="images/menu_fid_icon.png" width="20" alt="FID">&nbsp;&nbsp;FID</a>
+				  <a href="#popup1" class="list-group-item list-group-item-action"><img src="images/menu_location_icon.png" width="15" alt="Location">&nbsp;&nbsp;Room Location</a>
+				  <a href="gps-nmt.html" class="list-group-item list-group-item-action"><img src="images/menu_magicdraw_icon.png" width="20" alt="MBSE">&nbsp;MBSE</a>
+			</span>
+		</div>		
+		<div class="menu adms" style="padding-top:25px">ADMS
+			<span class="list-group" id="menu14">
+				  <a href="reports.html" class="list-group-item list-group-item-action"><img src="images/menu_reports_icon.png" width="20" alt="Reports">&nbsp;&nbsp;System Data</a>
+				  <a href="fid_zoom_4.html" class="list-group-item list-group-item-action"><img src="images/menu_fid_icon.png" width="20" alt="FID">&nbsp;&nbsp;FID</a>
+				  <a href="#popup4" class="list-group-item list-group-item-action"><img src="images/menu_location_icon.png" width="15" alt="Location">&nbsp;&nbsp;Room Location</a>
+				  <a href="ntwan-unk.html" class="list-group-item list-group-item-action"><img src="images/menu_magicdraw_icon.png" width="20" alt="MBSE">&nbsp;MBSE</a>
+			</span>
+		</div>		
+		<div class="menu jtt" style="padding-top:25px">SSR-1/JTT
+			<span class="list-group" id="menu15">
+				  <a href="reports.html" class="list-group-item list-group-item-action"><img src="images/menu_reports_icon.png" width="20" alt="Reports">&nbsp;&nbsp;System Data</a>
+				  <a href="fid_zoom_12.html" class="list-group-item list-group-item-action"><img src="images/menu_fid_icon.png" width="20" alt="FID">&nbsp;&nbsp;FID</a>
+				  <a href="#popup1" class="list-group-item list-group-item-action"><img src="images/menu_location_icon.png" width="15" alt="Location">&nbsp;&nbsp;Room Location</a>
+				  <a href="gps-nmt.html" class="list-group-item list-group-item-action"><img src="images/menu_magicdraw_icon.png" width="20" alt="MBSE">&nbsp;MBSE</a>
+			</span>
+		</div>	
+
+
+	</div>
+
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+</body></html>

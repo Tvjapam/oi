@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bot - Param</title>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js"></script>
+	<style type="text/css">
+		.container {
+  width: 100%;
+  height: 480px;
+}
+
+#learn-more {
+  fill-opacity: 0;
+  fill: #fff;
+  stroke: #fff;
+  stroke-width: 2;
+  border-radius: 5px;
+  stroke-linejoin: round;
+  transition: all 250ms ease-in;
+  cursor: pointer;
+}
+#learn-more:hover {
+  fill-opacity: 1;
+}
+#learn-more:hover ~ .learn-more-text {
+  fill: #005fa4;
+}
+
+.learn-more-text {
+  font-family: 'Roboto';
+  fill: #fff;
+  pointer-events: none;
+  font-size: 14px;
+  transition: all 250ms ease-in;
+}
+
+.center {
+  fill: #005fa4;
+}
+
+.pointer {
+  fill: #fff;
+  stroke: #3b8fc0;
+  stroke-width: 2;
+}
+
+.nav-copy {
+  font-family: 'Roboto';
+  fill: #fff;
+  fill-opacity: 1;
+  transition: all 250ms ease-in;
+}
+.nav-copy.changing {
+  fill-opacity: 0;
+}
+
+.service {
+  cursor: pointer;
+}
+.service text {
+  font-size: 14px;
+  font-family: 'Roboto';
+  text-anchor: middle;
+}
+.service .icon-wrapper {
+  -webkit-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
+}
+.service .icon-wrapper, .service .icon-wrapper > * {
+  transition: all 250ms ease-in;
+}
+.service circle {
+  fill: #005fa4;
+}
+.service circle.shadow {
+  fill-opacity: 0;
+  -webkit-filter: url(#service-shadow);
+          filter: url(#service-shadow);
+}
+.service use {
+  fill: #fff;
+}
+.service text {
+  fill: #4d4d4d;
+}
+.service.active .icon-wrapper, .service:hover .icon-wrapper {
+  -webkit-transform: scale(1.15) translateY(-5px);
+          transform: scale(1.15) translateY(-5px);
+}
+.service.active .icon-wrapper, .service.active .icon-wrapper > *, .service:hover .icon-wrapper, .service:hover .icon-wrapper > * {
+  transition: all 250ms ease-out;
+}
+.service.active .icon-wrapper circle.shadow, .service:hover .icon-wrapper circle.shadow {
+  fill-opacity: 0.4;
+}
+.service.active text, .service:hover text {
+  fill: #005fa4;
+  font-weight: bold;
+}
+
+	</style>
+
+</head>
+<body>
+<div class="container">
+  <svg id="circle-nav-services" width="100%" height="100%" viewBox="0 0 650 550">
+    <defs>
+    <filter id="service-shadow" height="2" width="2" y="-.5" x="-.5">
+      <feOffset result="offOut" in="SourceGraphic" dx="0" dy="5" />
+      <feGaussianBlur result="blurOut" in="offOut" stdDeviation="12" />
+      <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
+    </filter>
+  </defs>
+  
+    <symbol id="circle-nav-copy" viewBox="0 0 300 300">
+      <defs>
+        <style>/*
+          .cls-1 {
+            font-size: 28px;
+            font-family: Roboto-Bold, Roboto;
+            font-weight: 700;
+          }
+
+          .cls-2 {
+            letter-spacing: -0.02em;
+          }
+
+          .cls-3 {
+            letter-spacing: -0.01em;
+          }
+
+          .cls-4 {
+            letter-spacing: -0.01em;
+          }
+
+          .cls-5 {
+            font-size: 16px;
+            font-family: Roboto-Regular, Roboto;
+          }
+
+          .cls-6 {
+            letter-spacing: -0.01em;
+          }
+
+          .cls-7 {
+            letter-spacing: -0.01em;
+          }
+
+          .cls-8 {
+            letter-spacing: -0.02em;
+          }
+
+          .cls-9 {
+            letter-spacing: -0.01em;
+          }
+
+          .cls-10 {
+            letter-spacing: 0.01em;
+          }
+
+          .cls-11 {
+            letter-spacing: -0.01em;
+          }
+
+          .cls-12 {
+            letter-spacing: -0.04em;
+          }
+
+          .cls-13 {
+            letter-spacing: -0.02em;
+          }
+
+          .cls-14 {
+            letter-spacing: 0.01em;
+          }
+
+          .cls-15 {
+            letter-spacing: -0.01em;
+          }
+
+          .cls-16 {
+            letter-spacing: -0.06em;
+          }
+
+          .cls-17 {
+            letter-spacing: -0.02em;
+          }
+
+          .cls-18 {
+            letter-spacing: 0.01em;
+          }
+
+          .cls-19 {
+            letter-spacing: 0.02em;
+          }
+
+          .cls-20 {
+            letter-spacing: -0.01em;
+          }
+
+          .cls-21 {
+            letter-spacing: -0.03em;
+          }*/
+        </style>
+      </defs>
+      <title>Artboard 1</title>
+      <text class="cls-1" transform="translate(99 1865)">P
+        <tspan class="cls-2" x="18" y="0">r</tspan>
+        <tspan x="28" y="0">ocess</tspan>
+        <tspan class="cls-3" x="-22" y="28">A</tspan>
+        <tspan x="-4" y="28">u</tspan>
+        <tspan class="cls-4" x="12" y="28">t</tspan>
+        <tspan x="21" y="28">omation</tspan>
+      </text>
+      <text class="cls-5" transform="translate(57 1930)">Our p
+        <tspan class="cls-6" x="38" y="0">r</tspan>
+        <tspan x="43" y="0">ocess and Industrial </tspan>
+        <tspan class="cls-3" x="1" y="19">A</tspan>
+        <tspan x="12" y="19">u</tspan>
+        <tspan class="cls-6" x="21" y="19">t</tspan>
+        <tspan x="26" y="19">omation personnel a</tspan>
+        <tspan class="cls-7" x="172" y="19">r</tspan>
+        <tspan x="177" y="19">e </tspan>
+        <tspan x="12" y="38">t</tspan>
+        <tspan class="cls-8" x="17" y="38">r</tspan>
+        <tspan x="22" y="38">ained </tspan>
+        <tspan class="cls-6" x="65" y="38">t</tspan>
+        <tspan x="70" y="38">o of</tspan>
+        <tspan class="cls-9" x="98" y="38">f</tspan>
+        <tspan x="103" y="38">er a b</tspan>
+        <tspan class="cls-6" x="143" y="38">r</tspan>
+        <tspan x="148" y="38">oad </tspan>
+        <tspan x="-7" y="58">scope of se</tspan>
+        <tspan class="cls-10" x="75" y="58">r</tspan>
+        <tspan x="81" y="58">vices </tspan>
+        <tspan class="cls-6" x="121" y="58">t</tspan>
+        <tspan x="126" y="58">o meet or </tspan>
+        <tspan x="1" y="77">e</tspan>
+        <tspan class="cls-6" x="9" y="77">x</tspan>
+        <tspan x="17" y="77">ceed </tspan>
+        <tspan class="cls-11" x="55" y="77">y</tspan>
+        <tspan x="63" y="77">our p</tspan>
+        <tspan class="cls-6" x="99" y="77">r</tspan>
+        <tspan x="104" y="77">oject goals.</tspan>
+      </text>
+      <text class="cls-1" transform="translate(89 1566)">
+        <tspan class="cls-12">T</tspan>
+        <tspan x="16" y="0">echnical</tspan>
+        <tspan x="7" y="28">Se</tspan>
+        <tspan class="cls-10" x="39" y="28">r</tspan>
+        <tspan x="49" y="28">vices</tspan>
+      </text>
+      <text class="cls-5" transform="translate(47 1636)">
+        <tspan class="cls-13">W</tspan>
+        <tspan x="14" y="0">e ensu</tspan>
+        <tspan class="cls-7" x="61" y="0">r</tspan>
+        <tspan x="66" y="0">e that </tspan>
+        <tspan class="cls-11" x="110" y="0">y</tspan>
+        <tspan x="118" y="0">our p</tspan>
+        <tspan class="cls-6" x="154" y="0">r</tspan>
+        <tspan x="159" y="0">ocess, </tspan>
+        <tspan x="10" y="19">manufacturing, packaging </tspan>
+        <tspan x="-5" y="38">equipment, facility and utilities </tspan>
+        <tspan x="-10" y="58">pe</tspan>
+        <tspan class="cls-14" x="7" y="58">r</tspan>
+        <tspan x="13" y="58">form as the intended design.</tspan>
+      </text>
+      <text class="cls-1" transform="translate(105 966)">P
+        <tspan class="cls-2" x="18" y="0">r</tspan>
+        <tspan x="28" y="0">oject</tspan>
+        <tspan x="-38" y="28">Management</tspan>
+      </text>
+
+      <text class="cls-1" transform="translate(75 666)">Engineering</text>
+      <text class="cls-5" transform="translate(83 710)">Cost</text>
+
+      <text class="cls-1" transform="translate(87 65)">Industries</text>
+      <text class="cls-5" transform="translate(63 108)">Our highly skilled staff is</text>
+      <text class="cls-1" transform="translate(87 365)">
+        <tspan class="cls-17">V</tspan>
+        <tspan x="18" y="0">alidation</tspan>
+        <tspan x="-32" y="28">(Q&amp;C and CS</tspan>
+        <tspan class="cls-18" x="130" y="28">V</tspan>
+        <tspan x="149" y="28">)</tspan>
+      </text>
+      <text class="cls-5" transform="translate(46 437)">As pa
+        <tspan class="cls-19" x="40" y="0">r</tspan>
+        <tspan x="46" y="0">t of our wide expe</tspan>
+        <tspan class="cls-19" x="173" y="0">r</tspan>
+        <tspan x="178" y="0">tise, </tspan>
+        <tspan x="1" y="19">we p</tspan>
+        <tspan class="cls-6" x="34" y="19">r</tspan>
+        <tspan class="cls-11" x="39" y="19">o</tspan>
+        <tspan x="48" y="19">vide Commissioning &amp; </tspan>
+        <tspan x="6" y="38">Qualification and Computer </tspan>
+        <tspan x="2" y="58">System </tspan>
+        <tspan class="cls-17" x="59" y="58">V</tspan>
+        <tspan x="69" y="58">alidation Solutions.</tspan>
+      </text>
+      <text class="cls-1" transform="translate(138 1266)">
+        <tspan class="cls-20">I
+          <tspan class="cls-21" x="8" y="0">T</tspan>
+        </tspan>
+        <tspan x="-80" y="28">Manufacturing</tspan>
+      </text>
+      <text class="cls-5" transform="translate(47 1323)">Our Manufacturing E
+        <tspan class="cls-6" x="146" y="0">x</tspan>
+        <tspan x="154" y="0">ecution </tspan>
+        <tspan x="38" y="19">Systems comprise </tspan>
+        <tspan x="0" y="38">applications that connect the </tspan>
+        <tspan class="cls-7" x="-5" y="58">r</tspan>
+        <tspan x="0" y="58">eal-time data originated at the </tspan>
+        <tspan x="-1" y="77">shop floor with the enterprise </tspan>
+        <tspan x="40" y="96">l</tspan>
+        <tspan class="cls-15" x="44" y="96">ev</tspan>
+        <tspan x="60" y="96">el applications. </tspan>
+      </text>
+    </symbol>
+
+
+
+
+
+
+    
+    <!-- arc travelled by the pointer -->
+    <svg x="150" y="0" width="350" height="350" viewBox="0 0 500 500">
+      <linearGradient id="a" gradientUnits="userSpaceOnUse" x1="250.2542" y1="496.283" x2="250.2542" y2="-.2102">
+        <stop offset="0" stop-color="#0F68A9"/>
+        <stop offset="1" stop-color="#3DDEED" stop-opacity="0"/>
+      </linearGradient>
+      <path fill="url(#a)" d="M250.3 0c137 0 248.1 111.1 248.1 248.1S387.3 496.2 250.3 496.2 2.2 385.1 2.2 248.1 113.2 0 250.3 0C112.5 0 .8 111.7.8 249.5S112.5 499 250.3 499s249.5-111.7 249.5-249.5S388 0 250.3 0z"/>
+    </svg>
+    
+    <g id="service-collection">
+      <!-- this gets filled dynamically -->
+    </g>
+    <circle cx="325" cy="170" r="140" class="center"/>
+    <use x="185" y="30" width="280" height="280" xlink:href="#circle-nav-copy" class="nav-copy"/>
+    <rect data-url="/industries" id="learn-more" x="280" y="250" width="90" height="30" />
+    <text x="290" y="270" class="learn-more-text">Learn more</text>
+  </svg>
+</div>
+
+<script type="text/javascript">
+	const center = { x: 325, y: 175 };
+const serv_dist = 250;
+const pointer_dist = 172;
+const pointer_time = 2;
+const icon_size = 42;
+const circle_radius = 38;
+const text_top_margin = 18;
+const tspan_delta = 16;
+
+//name is used as the title for the bubble
+//icon is the id of the corresponding svg symbol
+const services_data = [
+{ name: "Industries", icon: "industries" },
+{ name: "Validation\n(C&Q and CSV)", icon: "validation" },
+{ name: "Engineering", icon: "engineering" },
+{ name: "Project\nManagement", icon: "management" },
+{ name: "Manufacturing\nIT", icon: "manufacturing" },
+{ name: "Technical\nServices", icon: "technical" },
+{ name: "Process\nAutomation", icon: "process" }];
+
+
+const services = document.getElementById("service-collection");
+const nav_container = document.getElementById("circle-nav-services");
+const symbol_copy = document.getElementById("circle-nav-copy");
+const use_copy = document.querySelector("use.nav-copy");
+
+//Keeps code DRY avoiding namespace for element creation
+function createSVGElement(el) {
+  return document.createElementNS("http://www.w3.org/2000/svg", el);
+}
+
+//Quick setup for multiple attributes
+function setAttributes(el, options) {
+  Object.keys(options).forEach(function (attr) {
+    el.setAttribute(attr, options[attr]);
+  });
+}
+
+//Service bubbles are created dynamically
+function addService(serv, index) {
+  let group = createSVGElement("g");
+  group.setAttribute("class", "service serv-" + index);
+
+  /* This group is needed to apply animations in
+                                                          the icon and its background at the same time */
+  let icon_group = createSVGElement("g");
+  icon_group.setAttribute("class", "icon-wrapper");
+
+  let circle = createSVGElement("circle");
+  setAttributes(circle, {
+    r: circle_radius,
+    cx: center.x,
+    cy: center.y });
+
+  let circle_shadow = circle.cloneNode();
+  setAttributes(circle, {
+    class: 'shadow' });
+
+  icon_group.appendChild(circle_shadow);
+  icon_group.appendChild(circle);
+
+  let symbol = createSVGElement("use");
+  setAttributes(symbol, {
+    'x': center.x - icon_size / 2,
+    'y': center.y - icon_size / 2,
+    'width': icon_size,
+    'height': icon_size });
+
+  symbol.setAttributeNS("http://www.w3.org/1999/xlink", "xlink:href", "#" + serv.icon);
+  icon_group.appendChild(symbol);
+
+  group.appendChild(icon_group);
+
+  let text = createSVGElement("text");
+  setAttributes(text, {
+    x: center.x,
+    y: center.y + circle_radius + text_top_margin });
+
+
+  let tspan = createSVGElement("tspan");
+  if (serv.name.indexOf('\n') >= 0) {
+
+    let tspan2 = tspan.cloneNode();
+    let name = serv.name.split('\n');
+    jQuery(tspan).text(name[0]);
+    jQuery(tspan2).text(name[1]);
+
+    setAttributes(tspan2, {
+      x: center.x,
+      dy: tspan_delta });
+
+
+    text.appendChild(tspan);
+    text.appendChild(tspan2);
+  } else
+  {
+    jQuery(tspan).text(serv.name);
+    text.appendChild(tspan);
+  }
+
+  group.appendChild(text);
+  services.appendChild(group);
+
+  let service_bubble = jQuery(".serv-" + index);
+
+  //Uses tween to look for right position
+  twn_pivot_path.seek(index);
+  TweenLite.set(service_bubble, {
+    x: pivot_path.x,
+    y: pivot_path.y,
+    transformOrigin: "center center" });
+
+
+  service_bubble.click(serviceClick);
+}
+
+//Creates pointer
+function createPointer() {
+  let service_pointer = createSVGElement("circle");
+
+  setAttributes(service_pointer, {
+    cx: center.x - pointer_dist,
+    cy: center.y,
+    r: 12,
+    class: "pointer" });
+
+
+  nav_container.appendChild(service_pointer);
+
+  service_pointer = document.querySelector("svg .pointer");
+
+  let pointer_circle = [
+  { x: 0, y: 0 },
+  { x: pointer_dist, y: pointer_dist },
+  { x: pointer_dist * 2, y: 0 },
+  { x: pointer_dist, y: -pointer_dist },
+  { x: 0, y: 0 }];
+
+
+  twn_pointer_path.to(service_pointer, pointer_time, {
+    bezier: {
+      values: pointer_circle,
+      curviness: 1.5 },
+    ease: Power0.easeNone,
+    transformOrigin: "center center" });
+
+
+}
+
+//Defines behavior for service bubbles
+function serviceClick(ev) {
+
+  //There's always an active service
+  jQuery(".service.active").removeClass("active");
+
+  let current = jQuery(ev.currentTarget);
+  current.addClass("active");
+
+  //There's a "serv-*" class for each bubble
+  let current_class = current.attr("class").split(" ")[1];
+  let class_index = current_class.split('-')[1];
+
+  //Hides current text of the main bubble
+  jQuery(use_copy).addClass("changing");
+
+  //Sets pointer to the right position
+  twn_pointer_path.tweenTo(class_index * (pointer_time / (2 * 6)));
+
+  //After it's completely hidden, the text changes and becomes visible
+  setTimeout(() => {
+    let viewBoxY = 300 * class_index;
+    symbol_copy.setAttribute("viewBox", "0 " + viewBoxY + " 300 300");
+    jQuery(use_copy).removeClass("changing");
+  }, 250);
+}
+
+//Array describes points for a whole circle in order to get
+//the right curve
+let half_circle = [
+{ x: -serv_dist, y: 0 },
+{ x: 0, y: serv_dist },
+{ x: serv_dist, y: 0 },
+{ x: 0, y: -serv_dist },
+{ x: -serv_dist, y: 0 }];
+
+
+//A simple object is used in the tween to retrieve its values
+var pivot_path = { x: half_circle[0].x, y: half_circle[0].y };
+
+//The object is animated with a duration based on how many bubbles
+//should be placed
+var twn_pivot_path = TweenMax.to(pivot_path, 12, {
+  bezier: {
+    values: half_circle,
+    curviness: 1.5 },
+
+  ease: Linear.easeNone });
+
+
+services_data.reduce((count, serv) => {
+  addService(serv, count);
+  return ++count;
+}, 0);
+
+//The variable is modified inside the function
+//but its also used later to toggle its class
+var twn_pointer_path = new TimelineMax({ paused: false });
+createPointer();
+
+//Adding it immediately triggers a bug for the transform
+setTimeout(() => jQuery("#service-collection .serv-0").addClass("active"), 200);
+</script>
+
+</body>
+</html>
